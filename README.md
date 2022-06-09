@@ -1,14 +1,9 @@
 # vue-color-kit
 
-## [LiveDemo](https://vue-color-kit.vercel.app)
-
-![preview-dark](https://raw.githubusercontent.com/anish2690/vue-color-kit/master/src/img/preview-dark.jpg)
-![preview-light](https://raw.githubusercontent.com/anish2690/vue-color-kit/master/src/img/preview-light.jpg)
-
 ## Install
 
 ```bash
-$ yarn add vue-color-kit
+$ yarn add vue3-colorpicker
 ```
 
 ## Example

@@ -1,10 +1,8 @@
 <template>
   <div
     class="hu-color-picker"
-    :class="{ light: isLightTheme }"
-    :style="{ width: totalWidth + 'px' }"
   >
-    <div class="color-set">
+    <div class="color-set" v-if="palleteShow">
       <Saturation
         ref="saturation"
         :color="rgbString"
@@ -19,38 +17,15 @@
         :height="hueHeight"
         @selectHue="selectHue"
       />
-      <Alpha
-        ref="alpha"
-        :color="rgbString"
-        :rgba="rgba"
-        :width="hueWidth"
-        :height="hueHeight"
-        @selectAlpha="selectAlpha"
-      />
     </div>
     <div :style="{ height: previewHeight + 'px' }" class="color-show">
       <Preview
         :color="rgbaString"
-        :width="previewWidth"
         :height="previewHeight"
+        @click="togglePallete"
       />
-      <Sucker
-        v-if="!suckerHide"
-        :sucker-canvas="suckerCanvas"
-        :sucker-area="suckerArea"
-        @openSucker="openSucker"
-        @selectSucker="selectSucker"
-      />
+      <Box :color="modelHex" @inputColor="inputHex" />
     </div>
-    <Box name="HEX" :color="modelHex" @inputColor="inputHex" />
-    <Box name="RGBA" :color="modelRgba" @inputColor="inputRgba" />
-    <Colors
-      :color="rgbaString"
-      :colors-default="colorsDefault"
-      :colors-history-key="colorsHistoryKey"
-      @selectColor="selectColor"
-    />
-    <!-- custom options -->
     <slot></slot>
   </div>
 </template>
@@ -127,8 +102,9 @@ export default defineComponent({
   },
   data() {
     return {
+      palleteShow: false,
       hueWidth: 15,
-      hueHeight: 152,
+      hueHeight: 162,
       previewHeight: 30,
       modelRgba: '',
       modelHex: '',
@@ -196,6 +172,9 @@ export default defineComponent({
       const { r, g, b, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
+    },
+    togglePallete() {
+      this.palleteShow = !this.palleteShow
     },
     selectHue(color: any) {
       const { r, g, b, h, s, v } = setColorValue(color)
@@ -289,39 +268,22 @@ export default defineComponent({
 
 <style lang="scss">
 .hu-color-picker {
-  padding: 10px;
-  background: #1d2024;
-  border-radius: 4px;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+  padding: 0px;
+  position: relative;
+  background: #fff;
   z-index: 1;
-  &.light {
-    background: #f7f8f9;
-    .color-show {
-      .sucker {
-        background: #eceef0;
-      }
-    }
-    .color-type {
-      .name {
-        background: #e7e8e9;
-      }
-      .value {
-        color: #666;
-        background: #eceef0;
-      }
-    }
-    .colors.history {
-      border-top: 1px solid #eee;
-    }
-  }
   canvas {
     vertical-align: top;
   }
   .color-set {
     display: flex;
+    position: absolute;
+    right: 100%;
+    top: 0;
   }
   .color-show {
-    margin-top: 8px;
+    position:relative;
+    margin-top: 0px;
     display: flex;
   }
 }

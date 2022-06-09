@@ -1,6 +1,6 @@
 {
-  "name": "vue-color-kit",
-  "version": "1.0.5",
+  "name": "vue3-simple-colorpicker",
+  "version": "1.0.1",
   "description": "Vue color picker",
   "main": "dist/vue-color-kit.cjs.js",
   "unpkg": "dist/vue-color-kit.global.js",
@@ -61,6 +61,7 @@
     "jest": "^26.5.3",
     "lint-staged": "^10.5.1",
     "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^7.0.1",
     "pascalcase": "^1.0.0",
     "prettier": "^2.1.2",
     "prismjs": "^1.22.0",
@@ -101,10 +102,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anish2690/vue-color-kit.git"
+    "url": "git@github.com:kong2dog/vue3-colorpicker.git"
   },
-  "bugs": {
-    "url": "https://github.com/anish2690/vue-color-kit/issues"
-  },
-  "homepage": "https://github.com/anish2690/vue-color-kit#readme"
+  "homepage": "https://github.com/kong2dog/vue3-colorpicker.git"
 }
