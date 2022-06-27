@@ -104,7 +104,7 @@ export default defineComponent({
     return {
       palleteShow: false,
       hueWidth: 15,
-      hueHeight: 162,
+      hueHeight: 150,
       previewHeight: 30,
       modelRgba: '',
       modelHex: '',
@@ -125,7 +125,7 @@ export default defineComponent({
       return this.hueHeight + (this.hueWidth + 8) * 2
     },
     previewWidth(): number {
-      return this.totalWidth - (this.suckerHide ? 0 : this.previewHeight)
+      return this.totalWidth
     },
     rgba(): object {
       return {
@@ -277,7 +277,6 @@ export default defineComponent({
   }
   .color-set {
     display: flex;
-    position: absolute;
     right: 100%;
     top: 0;
   }

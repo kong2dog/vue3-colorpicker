@@ -63,8 +63,8 @@ export default defineComponent({
     },
     renderSlide() {
       this.slideSaturationStyle = {
-        left: this.hsv.s * this.size - 5 + 'px',
-        top: (1 - this.hsv.v) * this.size - 5 + 'px',
+        left: this.hsv.s * this.size - 10 + 'px',
+        top: (1 - this.hsv.v) * this.size - 10 + 'px',
       }
     },
     selectSaturation(e: any) {
@@ -93,8 +93,8 @@ export default defineComponent({
 
         // Do not modify the dom by monitoring data changes, otherwise when the color is #ffffff, the slide will go to the lower left corner
         this.slideSaturationStyle = {
-          left: x - 5 + 'px',
-          top: y - 5 + 'px',
+          left: x - 10 + 'px',
+          top: y - 10 + 'px',
         }
         // If you use the maximum value, the selected pixel will be empty, and the empty default is black
         const imgData = ctx.getImageData(
